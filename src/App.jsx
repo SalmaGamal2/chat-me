@@ -218,9 +218,6 @@ import { doc, getDoc } from "firebase/firestore";
 import { useTranslation } from "react-i18next";
 import i18n from "./i18n";
 import Block from "./Block/Block";
-import GameDetails from "./game/GameDetails";
-import JoinGame from "./game/startGame";
-import StartGame from "./game/startGame";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("chats");

@@ -755,7 +755,6 @@ export default function Details({ user, sharedPhotos = [] }) {
       });
       setBlocked(true);
 
-      // ✅ استخدام SweetAlert مع الترجمة
       Swal.fire({
         icon: "success",
         title: t("blockSuccessTitle"),
@@ -771,7 +770,6 @@ export default function Details({ user, sharedPhotos = [] }) {
     }
   };
 
-  // دالة إرسال الرسالة مع التحقق من الحظر
   const handleSendMessage = async (message) => {
     const isUserBlocked = await checkBlocked();
     if (isUserBlocked) {
