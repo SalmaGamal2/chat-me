@@ -1,0 +1,63 @@
+.registerContainer {
+    width: 100%;
+    max-width: 900px;
+    background-color: white;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.registerForm {
+    padding: 40px;
+    background-color: #fff;
+}
+
+.welcomeSection {
+    background: linear-gradient(to right, #c29da6, #ff4b2b);
+    color: white;
+    padding: 60px 40px;
+}
+
+/* Responsive Border Radius */
+@media (max-width: 991.98px) {
+    .registerForm {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .welcomeSection {
+        border-radius: 0 0 10px 10px;
+    }
+}
+
+.btnRegister {
+    border-radius: 30px;
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    border: none;
+}
+
+.btnLogin {
+    border: 1px solid #fff;
+    border-radius: 30px;
+    color: white;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.btnLogin:hover {
+    background-color: white;
+    color: #ff416c;
+}
+
+.already {
+    font-size: 0.9rem;
+}
+#img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    opacity: 0.6;
+
+}

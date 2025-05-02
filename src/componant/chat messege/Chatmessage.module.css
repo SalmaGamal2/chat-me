@@ -1,0 +1,277 @@
+
+ /* #chat{
+    height: 100%;
+    width: 100%;
+ }
+ #top {
+    border-bottom: 1px solid gray;
+ }
+ #img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+ }
+ #info {
+    font-size: 18px;
+    font-weight: bold;
+    color: aliceblue;
+ }
+ #bottom {
+   border-top: 1px solid white; 
+   margin-top: auto;
+ }
+ #camera {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+ }
+ #input {
+    flex: 1;
+    background-color: rgba(255, 192, 203, 0.507);
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 12px;
+    cursor: pointer;
+
+ }
+ #img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+ }
+ #picker {
+    bottom: 50px;
+    left: 0;
+    z-index: 10;
+    max-width: 300px;
+    max-height: 300px;
+    overflow: hidden;
+ }
+ #center {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow: scroll;
+
+ }
+ #massge {
+    max-width: 70%;
+    display: flex;
+    gap: 20px;
+ }
+ #massgeOwn {
+    align-self: flex-end;
+ }
+ #texts{
+    
+    p{
+        background-color: #5183fe;
+        padding: 20px;
+        border-radius: 12px;
+    }
+    h6{
+        font-size: 12px;
+    }
+ }
+ 
+    #recev{
+        p{
+            padding: 20px;
+            background-color: rgba(17,25,40,0.3);
+            border-radius: 10px;
+        }
+        h6 {
+            font-size: 12px;
+        }
+    }
+    
+  */
+
+/* تتتتتتتتتتتتتت */
+
+
+
+     #chat {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      background-color: rgba(255, 255, 255, 0.849);
+  }
+  body.dark-mode #chat {
+      background-color: #121212;
+      color: #fff;
+  }
+
+  #top {
+      border-bottom: 1px solid gray;
+  }
+
+ 
+
+  #info {
+      font-size: 18px;
+      font-weight: bold;
+      color: #5c3cc49a;
+  }
+
+  #bottom {
+      border-top: 1px solid white;
+      margin-top: auto;
+  }
+
+  #camera {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+  }
+
+  #input {
+      flex: 1;
+      background-color: white;
+      color:#35246d9a ;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 15px;
+      font-weight: bold;
+  }
+
+  #emojiIcon {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+  }
+
+  #picker {
+      /* bottom: 50px;
+      right: -80px;
+      max-width: 300px;
+      width: 100%;
+     max-height: 300px;
+      z-index: 1000;
+      position: absolute;
+      overflow-y: scroll; */
+    bottom: 50px;
+        right: 10px;
+        max-width: 300px;
+        width: 300px;
+        max-height: 350px;
+        height: 350px;
+        background: white;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        overflow-y: auto;
+        z-index: 1000;
+  }
+  @media (max-width: 768px) {
+      #picker {
+          right: 5%;
+          /* خليه يكون داخل الشاشة */
+          left: 5%;
+          margin: auto;
+          width: 90%;
+          /* عرض مرن */
+          max-width: 90%;
+          bottom: 60px;
+          height: 300px;
+      }
+  }
+
+  #center {
+      padding: 20px;
+      flex-grow: 1;
+      overflow-y: auto;
+  }
+
+  #massge {
+      max-width: 60%;
+      display: flex;
+      gap: 15px;
+  }
+ 
+
+  #massgeOwn {
+      align-self: flex-end;
+  
+
+   p {
+      background-color: #5c3cc49a;
+      padding: 20px;
+      border-radius: 12px;
+      color: white;
+  }
+  h6{
+    font-size: 12px;
+    color: aliceblue;
+  }
+}
+
+  .texts h6 {
+      font-size: 12px;
+      color: #ddd;
+  }
+
+  
+  #recev{
+   p {
+      background-color: rgba(17, 25, 40, 0.3);
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+  }
+
+   h6 {
+      font-size: 12px;
+      color: #aaa;
+  }
+  }
+ #avatar {
+     width: 60px;
+     height: 60px;
+     border-radius: 50%;
+     object-fit: cover;
+ }
+
+ 
+
+ #recev p {
+     background-color: rgba(17, 25, 40, 0.3);
+ }
+
+ .texts h6 {
+     font-size: 12px;
+     color: #ddd;
+ } 
+
+   
+   .chatImage {
+       /* max-width: 100%; */
+        max-width: 60%; 
+       height: auto;
+       border-radius: 10px;
+       transition: transform 0.2s ease-in-out;
+       display: block;
+       /* width: 130px; */
+   }
+
+   .chat-image:hover {
+       transform: scale(1.02);
+       opacity: 0.95;
+       
+   }
+   .modal-content {
+       background-color: #fff;
+       border-radius: 12px;
+   }
+
+   .modal-dialog {
+       max-width: 90%;
+   }
+   

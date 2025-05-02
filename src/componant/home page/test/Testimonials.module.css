@@ -1,0 +1,109 @@
+.reviewItem {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.reviewItem:hover {
+    transform: translateY(-5px);
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.reviewText {
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.reviewAuthor {
+    font-weight: bold;
+    color: #555;
+}
+
+.stars {
+    margin-bottom: 10px;
+}
+.reviewSection {
+    padding: 50px 15px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+.reviewForm {
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.reviewForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.reviewForm input,
+.reviewForm textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.reviewForm button {
+    background-color: #6c63ff;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.reviewForm button:hover {
+    background-color: #574fe3;
+}
+
+.stars {
+    display: flex;
+    gap: 5px;
+}
+
+.reviewsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.reviewItem {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.reviewText {
+    font-style: italic;
+    margin: 10px 0;
+}
+
+.reviewAuthor {
+    font-weight: bold;
+    text-align: right;
+    color: #333;
+}

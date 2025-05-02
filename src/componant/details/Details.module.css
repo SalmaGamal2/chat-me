@@ -1,0 +1,91 @@
+#details{
+    flex: 1;
+}
+#user {
+    padding: 30px 20px;
+    gap: 20px;
+    border: 1px solid gray ;
+
+}
+#info {
+    padding: 20px;
+    gap: 30px;
+     
+}
+#icons{
+    width: 30px;
+        height: 30px;
+        background-color: rgba(17, 25, 40, 0.3);
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-bottom: 10px;
+}
+#photoes {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+#b {
+    font-size: 14px;
+    color:#5c3cc49a;
+}
+#photoImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+#downloadIcon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-left: 15px;
+    transition: ease-in all 4ms;
+    &:hover {
+        background-color: rgba(255, 182, 193, 0.548);
+    }
+}
+#collapsible {
+    overflow: hidden;
+    transition: all 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+}
+
+#collapsible.open {
+    max-height: 500px;
+    opacity: 1;
+}
+#button {
+    padding: 10px 20px;
+    background-color: rgba(230,74,105,0.553);
+}
+@media (max-width: 768px) {
+    #user h2 {
+        font-size: 20px;
+    }
+
+    #photoItem {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+/* .dark-mode .offcanvas{
+    background-color: black;
+
+} */
+ .userDetailsCanvas {
+     background-color: rgb(221, 204, 207);
+     color: black;
+ }
+
+ .darkUserDetailsCanvas {
+     background-color: #1e1e1e;
+     color: white;
+ }

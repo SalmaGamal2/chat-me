@@ -1,0 +1,92 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,#root,.App {
+  min-height: 100vh;
+  /* height: 100vh; */
+  width: 100%;
+  /* overflow: hidden; */
+  
+}
+.App {
+  /* background-image: url(./assets/pexels-felixmittermeier-956999.jpg); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+ /* الوضع الداكن */
+ .dark-mode {
+  background-color: #121212 !important;
+  color: #f1f1f1 !important;
+}
+
+.dark-mode .card,
+.dark-mode .form-control,
+.dark-mode .btn {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  border-color: #333;
+}
+
+.dark-mode input,
+.dark-mode textarea {
+  background-color: #222;
+  color: #fff;
+}
+
+.dark-mode a {
+  color: #90caf9;
+} 
+
+body.dark-mode .sidebar {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .chatlist {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode input,
+body.dark-mode .form-control {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #444;
+}
+/* لأي زرار */
+body.dark-mode button {
+  background-color: #333 !important;
+  color: white !important;
+}
+
+/* لأي باراجراف */
+body.dark-mode p {
+  background-color: #1c1c1c;
+  color: #eee;
+}
+
+/* أي ديف فيه border-bottom */
+body.dark-mode div {
+  border-bottom-color: #444;
+}
+/* الخلفية لو الوضع فاتح */
+.background {
+  /* background-image: url("/path/to/light-background.jpg"); */
+  background-image: url("./assets/pexels-felixmittermeier-956999.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* الخلفية لو الوضع داكن */
+@media (prefers-color-scheme: dark) {
+  .background {
+    background-image: url("/path/to/dark-background.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+}

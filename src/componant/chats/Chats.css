@@ -1,0 +1,162 @@
+   
+   .chatlist {
+       flex: 1;
+       overflow-y: auto;
+       border-left: 1px solid pink;
+       border-right: 1px solid pink;
+       /* height: 100vh; */
+       min-height: 0;
+       /* لتحديد عرض شريط التمرير */
+
+   }
+
+
+   .chatlist::-webkit-scrollbar {
+       width: 10px;
+   }
+
+   /* Track */
+   .chatlist::-webkit-scrollbar-track {
+       background: #f1f1f1;
+   }
+
+   /* Handle */
+   .chatlist::-webkit-scrollbar-thumb {
+       background: #8888887a;
+       border-radius: 10px;
+   }
+
+   /* Handle on hover */
+   .chatlist::-webkit-scrollbar-thumb:hover {
+       background: #555;
+   }
+
+   .search {
+       display: flex;
+       align-items: center;
+       gap: 20px;
+       padding: 1rem;
+       color: white;
+       font-size: 20px;
+   }
+
+   .searchbar {
+       flex: 1;
+       background-color: rgba(202, 143, 153, 0.342);
+       display: flex;
+       align-items: center;
+       gap: 20px;
+       padding: 10px;
+       color: white;
+       width: 100%;
+   }
+
+   .searchbar input {
+       background-color: transparent;
+       border: none;
+       outline: none;
+       color: white;
+       /* padding: 10px 20px; */
+       /* flex: 1; */
+       width: 100%;
+   }
+
+   .searchbar img {
+       width: 20px;
+       height: 20px;
+   }
+
+
+   .addation {
+       cursor: pointer;
+       width: 20px;
+       height: 20px;
+       background-color: rgba(202, 143, 153, 0.342);
+       margin-left: 10px;
+       border-radius: 10px;
+
+   }
+
+
+   /* .people {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+     padding: 5px; 
+     border-bottom: 2px solid rgba(128, 0, 128, 0.678);
+    cursor: pointer;
+    flex-wrap: nowrap;
+    margin-top: 5px;
+    transition: ease-in all 400ms;
+    &:hover {
+        background-color: rgba(238, 174, 195, 0.63);
+    }
+    .people.active {
+        background-color: rgba(238, 174, 195, 0.63);
+    }  */
+
+   .people {
+       display: flex;
+       gap: 20px;
+       align-items: center;
+       padding: 5px;
+       border-bottom: 2px solid rgba(128, 0, 128, 0.678);
+       cursor: pointer;
+       flex-wrap: nowrap;
+       margin-top: 5px;
+       transition: ease-in all 400ms;
+   }
+
+   .people:hover {
+       background-color: rgba(238, 174, 195, 0.63);
+   }
+
+   .people.active {
+       background-color: rgba(238, 174, 195, 0.63);
+   }
+
+   /* img {
+       width: 50px;
+       height: 50px;
+       border-radius: 50%;
+       object-fit: cover;
+   } */
+
+   .text {
+       display: flex;
+       flex-direction: column;
+       flex-grow: 1;
+       gap: 10px;}
+           .spinner {
+               border: 6px solid #f3f3f3;
+               /* اللون الفاتح */
+               border-top: 6px solid pink;
+               /* اللون اللي بيلف */
+               border-radius: 50%;
+               width: 40px;
+               height: 40px;
+               animation: spin 1s linear infinite;
+               margin: 0 auto;
+               /* علشان يجي في النص */
+           }
+    
+           @keyframes spin {
+               0% {
+                   transform: rotate(0deg);
+               }
+    
+               100% {
+                   transform: rotate(360deg);
+               }
+           }
+                   .chat-header{
+                    color: rgba(0, 0, 0, 0.671);
+                    font-size: 16px;
+                   }
+                   .username {
+                    font-size: 17px;
+                   }
+                   .time {
+                    /* color: rgb(90, 90, 90); */
+                    font-size: 10px;
+                   }
