@@ -21,7 +21,6 @@ export default function Sidebar() {
     const newLang = i18n.language === "en" ? "ar" : "en";
     i18n.changeLanguage(newLang);
 
-    // تغير اتجاه الصفحة
     document.documentElement.dir = newLang === "ar" ? "rtl" : "ltr";
   };
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -50,7 +49,7 @@ export default function Sidebar() {
 
   const menuItems = [
     { icon: <FaCommentDots />, key: "chats", path: "/chats" },
-    { icon: <FaUserFriends />, key: "contacts", path: "/contacts" },
+    { icon: <FaUserFriends />, key: "story", path: "/story" },
     { icon: <FaUser />, key: "profile", path: "/profile" },
     { icon: <FaCog />, key: "settings", path: "/settings" },
     { icon: <FaUserTimes />, key: "Block", path: "/Block" },

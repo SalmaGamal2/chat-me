@@ -1,0 +1,75 @@
+
+ .statusContainer {
+     background: white;
+     border-radius: 10px;
+ }
+
+ .statusItem {
+     display: flex;
+     align-items: center;
+     padding: 10px 0;
+     cursor: pointer;
+ }
+
+ .myAvatarContainer {
+     position: relative;
+ }
+
+ .avatar {
+     width: 45px;
+     height: 45px;
+     border-radius: 50%;
+     object-fit: cover;
+     border: 2px solid #5b3cc4;
+ }
+
+ .plusIcon {
+     position: absolute;
+     bottom: -2px;
+     right: -2px;
+     font-size: 16px;
+     background: white;
+     border-radius: 50%;
+     color: #5b3cc4;
+ }
+
+ .overlay {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100vw;
+     height: 100vh;
+     background: rgba(0, 0, 0, 0.85);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     z-index: 9999;
+ }
+
+ .content {
+     position: relative;
+     max-width: 90%;
+     max-height: 90%;
+     text-align: center;
+ }
+
+ .image {
+     max-width: 100%;
+     max-height: 80vh;
+     border-radius: 10px;
+     object-fit: contain;
+ }
+
+ .caption {
+     color: white;
+     margin-top: 10px;
+ }
+
+ .closeIcon {
+     position: absolute;
+     top: -10px;
+     right: -10px;
+     font-size: 30px;
+     color: white;
+     cursor: pointer;
+ }

@@ -6,7 +6,7 @@
        border-right: 1px solid pink;
        /* height: 100vh; */
        min-height: 0;
-       /* لتحديد عرض شريط التمرير */
+       
 
    }
 
@@ -78,23 +78,7 @@
    }
 
 
-   /* .people {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-     padding: 5px; 
-     border-bottom: 2px solid rgba(128, 0, 128, 0.678);
-    cursor: pointer;
-    flex-wrap: nowrap;
-    margin-top: 5px;
-    transition: ease-in all 400ms;
-    &:hover {
-        background-color: rgba(238, 174, 195, 0.63);
-    }
-    .people.active {
-        background-color: rgba(238, 174, 195, 0.63);
-    }  */
-
+   
    .people {
        display: flex;
        gap: 20px;
@@ -129,15 +113,15 @@
        gap: 10px;}
            .spinner {
                border: 6px solid #f3f3f3;
-               /* اللون الفاتح */
+               
                border-top: 6px solid pink;
-               /* اللون اللي بيلف */
+               
                border-radius: 50%;
                width: 40px;
                height: 40px;
                animation: spin 1s linear infinite;
                margin: 0 auto;
-               /* علشان يجي في النص */
+              
            }
     
            @keyframes spin {

@@ -33,7 +33,6 @@ export default function HomePage() {
     screen10,
     // screen11,
   ];
-  // const images = [img, img, img];
 
   const [scrolled, setScrolled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -94,7 +93,7 @@ export default function HomePage() {
           </div>
         </div>
       </nav>
-      {/* Banner */}
+
       <section id="Home" className={styles.banner}>
         <div className={styles.overlay}>
           <div className="container">
