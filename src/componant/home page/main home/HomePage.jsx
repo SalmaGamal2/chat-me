@@ -10,6 +10,7 @@ import screen7 from "../../../assets/Screenshot (166).png";
 import screen8 from "../../../assets/Screenshot (141).png";
 import screen9 from "../../../assets/Screenshot (163).png";
 import screen10 from "../../../assets/Screenshot (164).png";
+import lap from "../../../assets/image-removebg-preview.png";
 // import screen11 from "../../../assets/Screenshot (141).png";
 import { FaShieldAlt, FaComments, FaPhotoVideo } from "react-icons/fa";
 
@@ -125,7 +126,7 @@ export default function HomePage() {
 
               <div className="col-lg-5 col-md-12 text-center">
                 <img
-                  src="/src/assets/image-removebg-preview.png"
+                  src={lap}
                   alt="App Preview"
                   className="img-fluid"
                   style={{ width: "200px" }}

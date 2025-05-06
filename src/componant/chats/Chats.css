@@ -144,3 +144,7 @@
                     /* color: rgb(90, 90, 90); */
                     font-size: 10px;
                    }
+                                   .no-background {
+                                       background-color: transparent;
+                                       /* إزالة الخلفية إذا كانت الرسالة تحتوي على صورة أو ملف */
+                                   }

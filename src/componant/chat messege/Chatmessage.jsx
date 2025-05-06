@@ -21,6 +21,8 @@ import { FaCamera, FaPaperclip, FaSmile } from "react-icons/fa";
 import Details from "../details/Details";
 import { useTranslation } from "react-i18next";
 import TicTacToeModal from "../../game/TicTacToeModal";
+import Pdf from "../pdf/Pdf";
+import avatar from "../../assets/avatar.png";
 
 export default function ChatMessage() {
   const [pdfUrl, setPdfUrl] = useState(null);
@@ -355,7 +357,7 @@ export default function ChatMessage() {
             data-bs-target="#userDetailsCanvas"
           >
             <img
-              src={chatUser?.photoURL || "/src/assets/avatar.png"}
+              src={chatUser?.photoURL || avatar}
               id={style.avatar}
               style={{ width: "50px", height: "50px", borderRadius: "50%" }}
               alt="avatar"
@@ -457,7 +459,7 @@ export default function ChatMessage() {
                   <audio
                     controls
                     src={msg.audio}
-                    style={{ maxWidth: "250px" }}
+                    style={{ maxWidth: "150px" }}
                   />
                 )}
                 <h6>
@@ -641,7 +643,7 @@ export default function ChatMessage() {
         </div>
       )}
 
-      {pdfUrl && (
+      {/* {pdfUrl && (
         <div
           className="modal fade show d-block"
           tabIndex="-1"
@@ -689,8 +691,9 @@ export default function ChatMessage() {
             </div>
           </div>
         </div>
-      )}
-      {/* <Pdf /> */}
+      )} */}
+
+      <Pdf pdfUrl={pdfUrl} onClose={() => setPdfUrl(null)} />
 
       <Details user={chatUser} sharedPhotos={sharedPhotos} />
     </>

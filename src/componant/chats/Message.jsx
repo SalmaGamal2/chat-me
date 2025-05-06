@@ -11,6 +11,7 @@ import {
 import { auth, db } from "../../firebase";
 import { useTranslation } from "react-i18next";
 import "./Chats.css";
+import avatar from "../../assets/avatar.png";
 
 export default function Message(props) {
   const [lastMessage, setLastMessage] = useState("");
@@ -151,7 +152,7 @@ export default function Message(props) {
     >
       <div className="position-relative d-flex">
         <img
-          src="/src/assets/avatar.png"
+          src={avatar}
           alt="avatar"
           style={{ width: "50px", height: "50px", borderRadius: "50%" }}
         />

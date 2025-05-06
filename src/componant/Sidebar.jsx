@@ -7,6 +7,7 @@ import {
   FaMoon,
   FaSun,
   FaUserTimes,
+  FaBars,
 } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { Image } from "react-bootstrap";
@@ -15,6 +16,7 @@ import { ThemeContext } from "../ThemeContext.js/ThemeProvider";
 import useUserStore from "../repos/useUserStore.JSX";
 import { FaGlobe } from "react-icons/fa";
 import i18n from "i18next";
+import logo from "../../src/assets/Purple_and_Pink_Gradient_Illustrative_Chat_Website_Logo-removebg-preview.png";
 
 export default function Sidebar() {
   const toggleLanguage = () => {
@@ -65,13 +67,14 @@ export default function Sidebar() {
         className={`burger-menu ${darkMode ? "dark" : "light"}`}
         onClick={toggleSidebar}
       >
-        ☰
+        {/* ☰ */}
+        <FaBars />
       </button>
 
       {isSidebarOpen && (
         <div className="sidebar-icons">
           <img
-            src="/src/assets/Purple_and_Pink_Gradient_Illustrative_Chat_Website_Logo-removebg-preview.png"
+            src={logo}
             className="logo-large"
             alt="logo"
             style={{ width: "70px", height: "70px", borderRadius: "50%" }}

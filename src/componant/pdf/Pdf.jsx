@@ -128,3 +128,37 @@
 // };
 
 // export default Pdf;
+// components/PdfViewerModal.jsx
+import React from "react";
+import styles from "./Pdf.module.css"; // استيراد CSS Module
+
+export default function Pdf({ pdfUrl, onClose }) {
+  if (!pdfUrl) return null;
+
+  return (
+    <div
+      className={`${styles.modalBackground} modal fade show d-block`}
+      tabIndex="-1"
+      onClick={onClose}
+    >
+      <div
+        className={`${styles.modalDialog} modal-dialog modal-dialog-centered`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className={`${styles.modalContent} modal-content`}>
+          <button
+            type="button"
+            className={`${styles.closeButton} btn-close`}
+            aria-label="Close"
+            onClick={onClose}
+          ></button>
+          <iframe
+            src={pdfUrl}
+            title="PDF Viewer"
+            className={styles.iframe} // استخدام CSS Module هنا
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  );
+}
