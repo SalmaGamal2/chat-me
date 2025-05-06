@@ -1,110 +1,130 @@
 // import React, { useState } from "react";
 // import { Document, Page } from "react-pdf";
-// import { Modal, Button } from "react-bootstrap"; // إذا كنت تستخدم Bootstrap
+// import { Modal, Button } from "react-bootstrap";
+// import { pdfjs } from "react-pdf";
+// pdfjs.GlobalWorkerOptions.workerSrc =
+//   "https://unpkg.com/pdfjs-dist@2.9.359/es5/build/pdf.worker.min.js";
 
-// // مكون الـ Modal لعرض الـ PDF
 // const PDFModal = ({ pdfUrl, closeModal }) => {
+//   const [pageNumber, setPageNumber] = useState(1);
+
+//   const goToNextPage = () => {
+//     setPageNumber(pageNumber + 1);
+//   };
+
+//   const goToPrevPage = () => {
+//     setPageNumber(pageNumber - 1);
+//   };
+
 //   return (
 //     <Modal show={true} onHide={closeModal} centered>
 //       <Modal.Header closeButton>
 //         <Modal.Title>عرض PDF</Modal.Title>
 //       </Modal.Header>
 //       <Modal.Body>
-//         <Document file={pdfUrl}>
-//           <Page pageNumber={1} />
-//         </Document>
+//         <div className="pdf-container">
+//           <Document file={pdfUrl}>
+//             <Page pageNumber={pageNumber} className="pdf-page" />
+//           </Document>
+//         </div>
+//         <div>
+//           <Button onClick={goToPrevPage} disabled={pageNumber <= 1}>
+//             السابق
+//           </Button>
+//           <Button onClick={goToNextPage}>التالي</Button>
+//         </div>
 //       </Modal.Body>
 //     </Modal>
 //   );
 // };
 
 // // المكون الرئيسي
-// const App = () => {
+// const pdf = () => {
 //   const [pdfUrl, setPdfUrl] = useState(null);
 
-//   // فتح الـ Modal مع رابط الـ PDF
 //   const openModal = (url) => {
 //     setPdfUrl(url);
 //   };
 
-//   // غلق الـ Modal
 //   const closeModal = () => {
 //     setPdfUrl(null);
 //   };
 
 //   return (
 //     <div>
-//       {/* زر لفتح الـ Modal وعرض الـ PDF */}
 //       <Button onClick={() => openModal("https://example.com/your-pdf.pdf")}>
 //         عرض PDF
 //       </Button>
 
-//       {/* عرض الـ Modal إذا كان يوجد URL للـ PDF */}
 //       {pdfUrl && <PDFModal pdfUrl={pdfUrl} closeModal={closeModal} />}
 //     </div>
 //   );
 // };
 
 // export default Pdf;
-import React, { useState } from "react";
-import { Document, Page } from "react-pdf";
-import { Modal, Button } from "react-bootstrap";
+// import React, { useState } from "react";
+// import { Document, Page } from "react-pdf";
+// import { Modal, Button } from "react-bootstrap";
+// import { pdfjs } from "react-pdf";
 
-// مكون الـ Modal لعرض الـ PDF
-const PDFModal = ({ pdfUrl, closeModal }) => {
-  const [pageNumber, setPageNumber] = useState(1);
+// // تحديد المسار إلى ملف worker لـ pdf.js
+// pdfjs.GlobalWorkerOptions.workerSrc =
+//   "https://unpkg.com/pdfjs-dist@2.9.359/es5/build/pdf.worker.min.js";
 
-  const goToNextPage = () => {
-    setPageNumber(pageNumber + 1);
-  };
+// const PDFModal = ({ pdfUrl, closeModal }) => {
+//   const [pageNumber, setPageNumber] = useState(1);
 
-  const goToPrevPage = () => {
-    setPageNumber(pageNumber - 1);
-  };
+//   const goToNextPage = () => {
+//     setPageNumber(pageNumber + 1);
+//   };
 
-  return (
-    <Modal show={true} onHide={closeModal} centered>
-      <Modal.Header closeButton>
-        <Modal.Title>عرض PDF</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <div className="pdf-container">
-          <Document file={pdfUrl}>
-            <Page pageNumber={pageNumber} className="pdf-page" />
-          </Document>
-        </div>
-        <div>
-          <Button onClick={goToPrevPage} disabled={pageNumber <= 1}>
-            السابق
-          </Button>
-          <Button onClick={goToNextPage}>التالي</Button>
-        </div>
-      </Modal.Body>
-    </Modal>
-  );
-};
+//   const goToPrevPage = () => {
+//     setPageNumber(pageNumber - 1);
+//   };
 
-// المكون الرئيسي
-const Pdf = () => {
-  const [pdfUrl, setPdfUrl] = useState(null);
+//   return (
+//     <Modal show={true} onHide={closeModal} centered>
+//       <Modal.Header closeButton>
+//         <Modal.Title>عرض PDF</Modal.Title>
+//       </Modal.Header>
+//       <Modal.Body>
+//         <div className="pdf-container">
+//           <Document file={pdfUrl}>
+//             <Page pageNumber={pageNumber} className="pdf-page" />
+//           </Document>
+//         </div>
+//         <div>
+//           <Button onClick={goToPrevPage} disabled={pageNumber <= 1}>
+//             السابق
+//           </Button>
+//           <Button onClick={goToNextPage}>التالي</Button>
+//         </div>
+//       </Modal.Body>
+//     </Modal>
+//   );
+// };
 
-  const openModal = (url) => {
-    setPdfUrl(url);
-  };
+// // المكون الرئيسي
+// const Pdf = () => {
+//   const [pdfUrl, setPdfUrl] = useState(null);
 
-  const closeModal = () => {
-    setPdfUrl(null);
-  };
+//   const openModal = (url) => {
+//     setPdfUrl(url);
+//   };
 
-  return (
-    <div>
-      <Button onClick={() => openModal("https://example.com/your-pdf.pdf")}>
-        عرض PDF
-      </Button>
+//   const closeModal = () => {
+//     setPdfUrl(null);
+//   };
 
-      {pdfUrl && <PDFModal pdfUrl={pdfUrl} closeModal={closeModal} />}
-    </div>
-  );
-};
+//   return (
+//     <div>
+//       <Button onClick={() => openModal("https://example.com/your-pdf.pdf")}>
+//         عرض PDF
+//       </Button>
 
-export default Pdf;
+//       {pdfUrl && <PDFModal pdfUrl={pdfUrl} closeModal={closeModal} />}
+//     </div>
+//   );
+// };
+
+// export default Pdf;

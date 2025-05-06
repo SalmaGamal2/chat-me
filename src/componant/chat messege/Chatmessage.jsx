@@ -21,7 +21,6 @@ import { FaCamera, FaPaperclip, FaSmile } from "react-icons/fa";
 import Details from "../details/Details";
 import { useTranslation } from "react-i18next";
 import TicTacToeModal from "../../game/TicTacToeModal";
-import Pdf from "./Pdf";
 
 export default function ChatMessage() {
   const [pdfUrl, setPdfUrl] = useState(null);
@@ -642,7 +641,7 @@ export default function ChatMessage() {
         </div>
       )}
 
-      {/* {pdfUrl && (
+      {pdfUrl && (
         <div
           className="modal fade show d-block"
           tabIndex="-1"
@@ -690,8 +689,8 @@ export default function ChatMessage() {
             </div>
           </div>
         </div>
-      )} */}
-      <Pdf />
+      )}
+      {/* <Pdf /> */}
 
       <Details user={chatUser} sharedPhotos={sharedPhotos} />
     </>
