@@ -17,12 +17,15 @@ import EmojiPicker from "emoji-picker-react";
 import Swal from "sweetalert2";
 import style from "./Chatmessage.module.css";
 import "../details/Details";
-import { FaCamera, FaSmile } from "react-icons/fa";
+import { FaCamera, FaPaperclip, FaSmile } from "react-icons/fa";
 import Details from "../details/Details";
 import { useTranslation } from "react-i18next";
 import TicTacToeModal from "../../game/TicTacToeModal";
+import Pdf from "./Pdf";
 
 export default function ChatMessage() {
+  const [pdfUrl, setPdfUrl] = useState(null);
+
   const [recording, setRecording] = useState(false);
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const audioChunksRef = useRef([]);
@@ -34,6 +37,7 @@ export default function ChatMessage() {
   const [sharedPhotos, setSharedPhotos] = useState([]);
   const [chatUser, setChatUser] = useState(null);
   const fileInputRef = useRef(null);
+  const fileRef = useRef(null);
   const [userStatus, setUserStatus] = useState({
     isOnline: false,
     lastSeen: null,
@@ -284,6 +288,61 @@ export default function ChatMessage() {
       setUploading(false);
     }
   };
+  const handleFileUpload = async (e) => {
+    const files = Array.from(e.target.files);
+    if (!files.length) return;
+
+    setUploading(true);
+
+    try {
+      for (const file of files) {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", "chatApp");
+
+        // اختار نوع الرفع حسب نوع الملف
+        const isImage = file.type.startsWith("image/");
+        const uploadUrl = isImage
+          ? "https://api.cloudinary.com/v1_1/dec3jkvqs/image/upload"
+          : "https://api.cloudinary.com/v1_1/dec3jkvqs/raw/upload";
+
+        const res = await fetch(uploadUrl, {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await res.json();
+        const fileUrl = data.secure_url;
+        console.log("✅ Uploaded File URL:", fileUrl);
+
+        const messageData = {
+          sender: auth.currentUser?.uid,
+          datetime: serverTimestamp(),
+        };
+
+        if (isImage) {
+          messageData.img = fileUrl;
+          messageData.text = ""; // optional
+        } else {
+          messageData.file = {
+            name: file.name,
+            url: fileUrl,
+            // url: fileUrl.replace("/upload/", "/raw/upload/"),
+          };
+        }
+
+        await addDoc(collection(db, `chats/${chat_id}/message`), messageData);
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: t("error"),
+        text: t("fileUploadError"),
+      });
+    } finally {
+      setUploading(false);
+    }
+  };
 
   return (
     <>
@@ -357,6 +416,43 @@ export default function ChatMessage() {
                     style={{ cursor: "pointer" }}
                   />
                 )}
+                {/* {msg.file && (
+                  <a
+                    href={msg.file.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline-secondary btn-sm"
+                  >
+                    📎 {msg.file.name}
+                  </a>
+                )} */}
+                {/* {msg.file && (
+                  <button
+                    className="btn btn-outline-secondary btn-sm"
+                    onClick={() => setPdfUrl(msg.file.url)}
+                  >
+                    📄 {msg.file.name}
+                  </button>
+                )} */}
+                {msg.file &&
+                  (msg.file.name.endsWith(".pdf") ? (
+                    <button
+                      className="btn btn-outline-secondary btn-sm"
+                      onClick={() => setPdfUrl(msg.file.url)}
+                    >
+                      📄 {msg.file.name}
+                    </button>
+                  ) : (
+                    <a
+                      href={msg.file.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-outline-secondary btn-sm"
+                    >
+                      📎 {msg.file.name}
+                    </a>
+                  ))}
+
                 <p>{msg.text}</p>
                 {msg.audio && (
                   <audio
@@ -403,6 +499,19 @@ export default function ChatMessage() {
           id={style.bottom}
         >
           <div className="icons d-flex gap-2 align-items-center">
+            <FaPaperclip
+              size={24}
+              style={{ cursor: "pointer", color: "#6c757d" }}
+              title={t("uploadFile")}
+              onClick={() => fileRef.current.click()}
+            />
+            <input
+              type="file"
+              ref={fileRef}
+              multiple
+              onChange={handleFileUpload}
+              style={{ display: "none" }}
+            />
             <FaCamera
               size={24}
               style={{ cursor: "pointer", color: "#0dcaf0" }}
@@ -532,6 +641,57 @@ export default function ChatMessage() {
           </div>
         </div>
       )}
+
+      {/* {pdfUrl && (
+        <div
+          className="modal fade show d-block"
+          tabIndex="-1"
+          style={{
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh", // لضمان تغطية كامل الشاشة
+          }}
+          onClick={() => setPdfUrl(null)}
+        >
+          <div
+            className="modal-dialog modal-dialog-centered"
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              maxWidth: "90%", // الحد الأقصى لعرض الـ modal
+              width: "80%", // العرض الافتراضي سيكون 80% من العرض
+            }}
+          >
+            <div
+              className="modal-content position-relative"
+              style={{
+                height: "90vh", // يمكن تعديلها حسب حاجتك
+                borderRadius: "8px", // لتنعيم الزوايا
+                overflow: "hidden", // لإخفاء المحتوى الزائد
+              }}
+            >
+              <button
+                type="button"
+                className="btn-close position-absolute top-0 end-0 m-3"
+                aria-label="Close"
+                onClick={() => setPdfUrl(null)}
+              ></button>
+              <iframe
+                src={pdfUrl}
+                title="PDF Viewer"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  border: "none",
+                  borderRadius: "8px", // لتنعيم الزوايا للـ iframe
+                }}
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )} */}
+      <Pdf />
 
       <Details user={chatUser} sharedPhotos={sharedPhotos} />
     </>
